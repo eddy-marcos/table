@@ -1,38 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const rows = document.querySelectorAll("#myTable tbody tr");
-  rows.forEach((row) => {
-    row.addEventListener("click", function () {
-      this.classList.toggle("selected");
+$(document).ready(function () {
+  $("#myTable tbody tr").click(function () {
+    $(this).toggleClass("selected");
+  });
+
+  $("#downloadBtn").click(function () {
+    const selectedRows = $("#myTable tbody tr.selected");
+    if (selectedRows.length === 0) {
+      alert("No rows selected!");
+      return;
+    }
+
+    const data = [];
+
+    selectedRows.each(function () {
+      const rowData = [];
+
+      $(this)
+        .find("td")
+        .each(function () {
+          rowData.push($(this).text());
+        });
+
+      data.push(rowData);
     });
+
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    XLSX.utils.book_append_sheet(wb, ws, "Selected Rows");
+
+    const wbout = XLSX.write(wb, { type: "binary", bookType: "xlsx" });
+
+    function s2ab(s) {
+      const buf = new ArrayBuffer(s.length);
+      const view = new Uint8Array(buf);
+
+      for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+      return buf;
+    }
+
+    saveAs(
+      new Blob([s2ab(wbout)], { type: "application/octet-stream" }),
+      "selected_rows.xlsx"
+    );
   });
 });
-
-function downloadSelectedRows() {
-  const selectedRows = Array.from(
-    document.querySelectorAll("#myTable tbody tr.selected")
-  );
-  if (selectedRows.length === 0) {
-    alert("No rows selected!");
-    return;
-  }
-
-  const headers = Array.from(document.querySelectorAll("#myTable th")).map(
-    (header) => header.innerText
-  );
-  const data = selectedRows.map((row) =>
-    Array.from(row.children).map((cell) => cell.innerText)
-  );
-
-  const csvContent =
-    headers.join(",") + "\n" + data.map((row) => row.join(",")).join("\n");
-  const blob = new Blob([csvContent], { type: "text/csv" });
-  const url = window.URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "selected_rows.csv";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  window.URL.revokeObjectURL(url);
-}
