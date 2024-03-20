@@ -10,34 +10,25 @@ $(document).ready(function () {
       return;
     }
 
-    const data = [];
-
-    selectedRows.each(function () {
+    const wb = XLSX.utils.book_new();
+    selectedRows.each(function (index) {
       const rowData = [];
-
       $(this)
         .find("td")
         .each(function () {
           rowData.push($(this).text());
         });
-
-      data.push(rowData);
+      const ws = XLSX.utils.aoa_to_sheet([rowData]);
+      XLSX.utils.book_append_sheet(wb, ws, "Sheet " + (index + 1));
     });
 
-    const wb = XLSX.utils.book_new();
-    const ws = XLSX.utils.aoa_to_sheet(data);
-    XLSX.utils.book_append_sheet(wb, ws, "Selected Rows");
-
     const wbout = XLSX.write(wb, { type: "binary", bookType: "xlsx" });
-
     function s2ab(s) {
       const buf = new ArrayBuffer(s.length);
       const view = new Uint8Array(buf);
-
       for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
       return buf;
     }
-
     saveAs(
       new Blob([s2ab(wbout)], { type: "application/octet-stream" }),
       "selected_rows.xlsx"

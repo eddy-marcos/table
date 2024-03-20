@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Table</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h2>Report</h2>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <table id="myTable">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>John Doe</td>
-          <td>john@example.com</td>
-        </tr>
-        <tr>
-          <td>Jane Smith</td>
-          <td>jane@example.com</td>
-        </tr>
-        <tr>
-          <td>Michael Johnson</td>
-          <td>michael@example.com</td>
-        </tr>
-        <tr>
-          <td>Sarah Johnson</td>
-          <td>sarah@example.com</td>
-        </tr>
-        <tr>
-          <td>David Brown</td>
-          <td>david@example.com</td>
-        </tr>
-        <tr>
-          <td>Emily Wilson</td>
-          <td>emily@example.com</td>
-        </tr>
-        <tr>
-          <td>Robert Williams</td>
-          <td>robert@example.com</td>
-        </tr>
-      </tbody>
-    </table>
+</head>
+<body>
 
-    <button id="downloadBtn">Download</button>
+<h2>Table</h2>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  </head>
-    <script src="script.js"></script>
-  </body>
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Jane Smith</td>
+            <td>jane@example.com</td>
+        </tr>
+        <tr>
+            <td>Michael Johnson</td>
+            <td>michael@example.com</td>
+        </tr>
+        <tr>
+            <td>Sarah Johnson</td>
+            <td>sarah@example.com</td>
+        </tr>
+        <tr>
+            <td>David Brown</td>
+            <td>david@example.com</td>
+        </tr>
+        <tr>
+            <td>Emily Wilson</td>
+            <td>emily@example.com</td>
+        </tr>
+        <tr>
+            <td>Robert Williams</td>
+            <td>robert@example.com</td>
+        </tr>
+    </tbody>
+</table>
+
+<button id="downloadBtn">Download</button>
+
+<script src="script.js"></script>
+</body>
 </html>
