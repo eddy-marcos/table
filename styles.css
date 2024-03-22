@@ -17,3 +17,6 @@ tr:nth-child(even) {
 tr.selected {
     background-color: #b3d9ff !important;
 }
+#downloadBtn {
+    margin-top: 20px;
+}
