@@ -1,112 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Table</title>
-<link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GRID</title>
+  </head>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+  <body>
+    <iframe
+      id="appFrame"
+      src="./grid.html"
+      style="height: 500px; width: 100%"
+      title="table"
+    ></iframe>
 
-<h2>Table</h2>
+    <button id="downloadBtn">Download Selected Rows</button>
 
-<table id="myTable">
-    <thead>
-        <tr>
-            <th>Monitored Entity</th>
-            <th>Operator</th>
-            <th>Outcome</th>
-            <th>Requirement</th>
-            <th>Numerator</th>
-            <th>Denominator</th>
-            <th>Cushion</th>
-            <th>Effective Date</th>
-            <th>Execution Time</th>
-            <th>Test Result</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Entity 1</td>
-            <td>Operator A</td>
-            <td>Success</td>
-            <td>Requirement 1</td>
-            <td>10</td>
-            <td>20</td>
-            <td>50%</td>
-            <td>2024-03-21</td>
-            <td>10:00 AM</td>
-            <td>Pass</td>
-        </tr>
-        <tr>
-            <td>Entity 2</td>
-            <td>Operator B</td>
-            <td>Failure</td>
-            <td>Requirement 2</td>
-            <td>5</td>
-            <td>15</td>
-            <td>33.33%</td>
-            <td>2024-03-21</td>
-            <td>11:30 AM</td>
-            <td>Fail</td>
-        </tr>
-        <tr>
-            <td>Entity 3</td>
-            <td>Operator C</td>
-            <td>Success</td>
-            <td>Requirement 3</td>
-            <td>15</td>
-            <td>25</td>
-            <td>60%</td>
-            <td>2024-03-21</td>
-            <td>12:45 PM</td>
-            <td>Pass</td>
-        </tr>
-        <tr>
-            <td>Entity 4</td>
-            <td>Operator D</td>
-            <td>Success</td>
-            <td>Requirement 4</td>
-            <td>8</td>
-            <td>10</td>
-            <td>80%</td>
-            <td>2024-03-21</td>
-            <td>2:00 PM</td>
-            <td>Pass</td>
-        </tr>
-        <tr>
-            <td>Entity 5</td>
-            <td>Operator E</td>
-            <td>Failure</td>
-            <td>Requirement 5</td>
-            <td>3</td>
-            <td>7</td>
-            <td>42.86%</td>
-            <td>2024-03-21</td>
-            <td>3:15 PM</td>
-            <td>Fail</td>
-        </tr>
-        <tr>
-            <td>Entity 6</td>
-            <td>Operator D</td>
-            <td>Failure</td>
-            <td>Requirement 6</td>
-            <td>4</td>
-            <td>8</td>
-            <td>42.86%</td>
-            <td>2024-03-21</td>
-            <td>3:15 PM</td>
-            <td>Fail</td>
-        </tr>
-    </tbody>
-</table>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+     <script src="script.js"></script>
 
-<button id="downloadBtn">Download</button>
-
-<script src="script.js"></script>
-</body>
+  </body>
 </html>

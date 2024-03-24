@@ -1,22 +1,43 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
+.ag-center-cols-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
 }
 
-th,
-td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+.ag-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+.ag-row.selected {
+    background-color: lightblue;
 }
 
-tr.selected {
-    background-color: #b3d9ff !important;
+.ag-row-even {
+    background-color: #f9f9f9;
 }
-#downloadBtn {
-    margin-top: 20px;
+
+.ag-cell {
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ag-cell-value {
+    display: flex;
+    align-items: center;
+}
+
+.ag-cell[col-id="outcome"],
+.ag-cell[col-id="cushion"],
+.ag-cell[col-id="numerator"],
+.ag-cell[col-id="denominator"] {
+    text-align: right;
+}
+button {
+    display: block;
+    position: absolute;
+    bottom: 0;
 }
